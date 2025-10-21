@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'ANIME VERSE BD',
+  description: 'Welcome to the ultimate anime universe! From action-packed adventures to heartwarming stories — stream, explore, and fall in love with every episode. No ads, no limits, just pure anime! ❤️‍🔥',
   generator: 'v0.app',
 }
 
