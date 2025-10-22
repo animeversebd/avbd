@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 interface SlideshowItem {
   id: number
@@ -62,10 +63,14 @@ export function HeroSlideshow({ items }: HeroSlideshowProps) {
           Discover this amazing anime series. Watch now to experience the adventure!
         </p>
 
-        <button className="w-fit px-6 py-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg transition-colors">
-          See More
-        </button>
+        <Link href={`/anime/${currentItem.id}`}>
+          <button className="w-fit px-6 py-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg transition-colors">
+            See More
+          </button>
+        </Link>
       </div>
+
+      <Link href={`/anime/${currentItem.id}`} className="absolute inset-0 cursor-pointer" />
 
       {/* Navigation Buttons */}
       <button
