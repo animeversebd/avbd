@@ -14,7 +14,7 @@ export function YoutubePlayer({ isOpen, onClose, videoId }: YoutubePlayerProps) 
 
   useEffect(() => {
     if (isOpen && iframeRef.current) {
-      const src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&modestbranding=1&controls=1&fs=1&rel=0&playsinline=1`
+      const src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&controls=1&fs=1&rel=0&playsinline=1`
       iframeRef.current.src = src
     }
   }, [isOpen, videoId])
