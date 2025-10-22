@@ -5,10 +5,18 @@ interface TelegramModalProps {
   isOpen: boolean
   onClose: () => void
   animeTitle: string
+  telegramLink?: string
 }
 
-export function TelegramModal({ isOpen, onClose, animeTitle }: TelegramModalProps) {
+export function TelegramModal({ isOpen, onClose, animeTitle, telegramLink }: TelegramModalProps) {
   if (!isOpen) return null
+
+  const linkToOpen = telegramLink || "https://t.me/animeverseBD"
+
+  const handleWatchNow = () => {
+    window.open(linkToOpen, "_blank", "noopener,noreferrer")
+    onClose()
+  }
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
@@ -31,14 +39,12 @@ export function TelegramModal({ isOpen, onClose, animeTitle }: TelegramModalProp
             >
               বন্ধ করুন
             </button>
-            <a
-              href="https://t.me/animeverseBD"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleWatchNow}
               className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-semibold"
             >
               Watch Now
-            </a>
+            </button>
           </div>
         </div>
       </div>
