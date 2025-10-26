@@ -1,15 +1,20 @@
 "use client"
 
 import { useState } from "react"
-import type { PageProps } from "@/types/pageProps"
-import { animeDatabase } from "@/data/animeDatabase"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+import { animeDatabase } from "@/lib/anime-data"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { Play, Send } from "lucide-react"
-import SocialLinks from "@/components/SocialLinks"
-import CarouselSection from "@/components/CarouselSection"
-import YoutubePlayer from "@/components/YoutubePlayer"
-import TelegramModal from "@/components/TelegramModal"
+import { SocialLinks } from "@/components/social-links"
+import { CarouselSection } from "@/components/carousel-section"
+import { YoutubePlayer } from "@/components/youtube-player"
+import { TelegramModal } from "@/components/telegram-modal"
+
+interface PageProps {
+  params: {
+    id: string
+  }
+}
 
 export default function AnimeDetailPage({ params }: PageProps) {
   const [searchQuery, setSearchQuery] = useState("")
