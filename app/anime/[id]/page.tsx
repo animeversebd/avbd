@@ -1,20 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { TelegramModal } from "@/components/telegram-modal"
-import { YoutubePlayer } from "@/components/youtube-player"
-import { CarouselSection } from "@/components/carousel-section"
-import { SocialLinks } from "@/components/social-links"
-import { Play, Send } from "lucide-react"
-import { animeDatabase } from "@/lib/anime-data"
-
-interface PageProps {
-  params: {
-    id: string
-  }
-}
+import type { PageProps } from "@/types/pageProps" // Assuming PageProps is declared in a types file
+import { animeDatabase } from "@/data/animeDatabase" // Assuming animeDatabase is declared in a data file
+import Header from "@/components/Header" // Assuming Header is a component
+import Footer from "@/components/Footer" // Assuming Footer is a component
+import Play from "@/components/icons/Play" // Assuming Play is an icon component
+import Send from "@/components/icons/Send" // Assuming Send is an icon component
+import SocialLinks from "@/components/SocialLinks" // Assuming SocialLinks is a component
+import CarouselSection from "@/components/CarouselSection" // Assuming CarouselSection is a component
+import YoutubePlayer from "@/components/YoutubePlayer" // Assuming YoutubePlayer is a component
+import TelegramModal from "@/components/TelegramModal" // Assuming TelegramModal is a component
 
 export default function AnimeDetailPage({ params }: PageProps) {
   const [searchQuery, setSearchQuery] = useState("")
@@ -151,7 +147,12 @@ export default function AnimeDetailPage({ params }: PageProps) {
       {/* Modals */}
       <YoutubePlayer isOpen={showTrailer} onClose={() => setShowTrailer(false)} videoId={anime.youtubeTrailerId} />
 
-      <TelegramModal isOpen={showTelegram} onClose={() => setShowTelegram(false)} animeTitle={anime.title} />
+      <TelegramModal
+        isOpen={showTelegram}
+        onClose={() => setShowTelegram(false)}
+        animeTitle={anime.title}
+        telegramLink={anime.telegramLink}
+      />
 
       <Footer />
     </div>
