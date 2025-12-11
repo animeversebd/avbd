@@ -24,7 +24,7 @@ export default function Home() {
     return allItems.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
   }, [searchQuery])
 
-  const slideshowItems = allItems.filter((item) => [130, 131, 106, 108, 109, 110, 111, 112,].includes(item.id))
+  const slideshowItems = allItems.filter((item) => [137, 139, 141, 143, 145, 151, 152, 111, 112,].includes(item.id))
 
   const newThisWeek = allItems
     .filter((item) => item.year >= 2024)
